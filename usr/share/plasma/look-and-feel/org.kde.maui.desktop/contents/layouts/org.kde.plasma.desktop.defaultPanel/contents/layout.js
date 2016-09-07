@@ -29,7 +29,7 @@ if (freeEdges["bottom"] == true) {
 panel.formfactor = 2
 panel.height = 56
 
-var kicker = panel.addWidget("org.kde.plasma.kickerdash")
+var kicker = panel.addWidget("org.kde.plasma.kicker")
 kicker.currentConfigGroup = ["Shortcuts"]
 kicker.writeConfig("global", "Alt+F1")
 
