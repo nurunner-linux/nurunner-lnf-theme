@@ -63,6 +63,7 @@ BreezeBlock {
             width: ListView.view.userItemWidth
             height: ListView.view.userItemHeight
             faceSize: ListView.view.userFaceSize
+            color: "#fdfdfd"
 
             onClicked: {
                 ListView.view.currentIndex = index;
