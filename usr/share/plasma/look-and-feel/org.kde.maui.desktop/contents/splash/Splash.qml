@@ -21,7 +21,7 @@ import QtQuick 2.5
 
 Image {
     id: root
-    source: "images/nurunner-background1.png"
+    source: "images/nurunner-background2.png"
     fillMode: Image.PreserveAspectCrop
 
     property int stage
@@ -40,27 +40,27 @@ Image {
     Rectangle {
         id: topRect
         width: parent.width
-        height: units.gridUnit * 16
+        height: units.gridUnit * 14
         anchors.centerIn: parent
         color: "#4C000000"
         Column {
             id: content
-            y: units.gridUnit * 2
+            y: units.gridUnit
             x: parent.width
             Image {
-                id: nurunner-logo
+                id: logoImage
                 anchors.horizontalCenter: parent.horizontalCenter
                 source: "images/nurunner-logo-white.png"
                 sourceSize.height: units.gridUnit * 8
-                sourceSize.width: sourceSize.height
-            }
+                sourceSize.width: units.gridUnit * 8
                 RotationAnimator {
-                    target: nurunner-logo;
+                    target: logoImage;
                     from: 0;
-                    to: 720;
-                    duration: 60000
+                    to: 7200;
+                    duration: 120000
                     running: true
                 }
+            }
             Item {
                 width: 1
                 height: Math.round(units.gridUnit * 3 - progressBar.height/2)
