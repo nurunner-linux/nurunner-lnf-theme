@@ -50,7 +50,7 @@ Image {
             Image {
                 id: nurunner-logo
                 anchors.horizontalCenter: parent.horizontalCenter
-                source: "images/nurunner-logo.png"
+                source: "images/nurunner-logo-white.png"
                 sourceSize.height: units.gridUnit * 8
                 sourceSize.width: sourceSize.height
             }
