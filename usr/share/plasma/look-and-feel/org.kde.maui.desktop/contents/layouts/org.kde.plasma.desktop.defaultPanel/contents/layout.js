@@ -37,7 +37,7 @@ kicker.currentConfigGroup = ["General"]
 //kicker.writeConfig("customButtonImage", "file:///usr/share/icons/hicolor/scalable/apps/homerun.svg")
 kicker.writeConfig("favoriteApps", ["systemsettings.desktop","synaptic.desktop","org.kde.ksysguard.desktop","vokoscreen.desktop"])
 kicker.writeConfig("limitDepth", true)
-kicker.writeConfig("useCustomButtonImage", true)
+//kicker.writeConfig("useCustomButtonImage", true)
 
 var eitm = panel.addWidget("org.kde.plasma.icontasks")
 eitm.currentConfigGroup = ["Configuration", "General"]
@@ -67,6 +67,6 @@ systrayContainment.writeConfig("knownItems","org.kde.discovernotifier,org.kde.pl
 systrayContainment.writeConfig("shownItems", "transmission")
 
 panel.addWidget("org.kde.plasma.digitalclock")
-panel.addWidget("org.kde.plasma.notifications")
+//panel.addWidget("org.kde.plasma.notifications")
 
 
