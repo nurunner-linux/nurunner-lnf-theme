@@ -37,7 +37,11 @@ kicker.currentConfigGroup = ["General"]
 //kicker.writeConfig("customButtonImage", "file:///usr/share/icons/hicolor/scalable/apps/homerun.svg")
 kicker.writeConfig("favoriteApps", ["systemsettings.desktop","synaptic.desktop","org.kde.ksysguard.desktop","vokoscreen.desktop"])
 kicker.writeConfig("limitDepth", true)
-//kicker.writeConfig("useCustomButtonImage", true)
+kicker.writeConfig("useCustomButtonImage", false)
+
+pager = panel.addWidget("pager");
+pager.writeConfig("rows", "2");
+pager.writeConfig("hideWhenSingleDesktop", "true");
 
 var eitm = panel.addWidget("org.kde.plasma.icontasks")
 eitm.currentConfigGroup = ["Configuration", "General"]
