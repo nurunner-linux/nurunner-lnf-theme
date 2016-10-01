@@ -34,10 +34,10 @@ kicker.currentConfigGroup = ["Shortcuts"]
 kicker.writeConfig("global", "Alt+F1")
 
 kicker.currentConfigGroup = ["General"]
-//kicker.writeConfig("customButtonImage", "file:///usr/share/icons/hicolor/scalable/apps/homerun.svg")
+kicker.writeConfig("customButtonImage", "file:///usr/share/pixmaps/homerun.svg")
 kicker.writeConfig("favoriteApps", ["systemsettings.desktop","synaptic.desktop","org.kde.ksysguard.desktop","vokoscreen.desktop"])
 kicker.writeConfig("limitDepth", true)
-kicker.writeConfig("useCustomButtonImage", false)
+kicker.writeConfig("useCustomButtonImage", true)
 
 pager = panel.addWidget("pager");
 pager.writeConfig("rows", "2");
