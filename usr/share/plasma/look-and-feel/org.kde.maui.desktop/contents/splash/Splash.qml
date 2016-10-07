@@ -50,13 +50,13 @@ Image {
             Image {
                 id: logoImage
                 anchors.horizontalCenter: parent.horizontalCenter
-                source: "images/nurunner-logo-white.png"
+                source: "images/nurunner-logo-white.svg"
                 sourceSize.height: units.gridUnit * 8
                 sourceSize.width: units.gridUnit * 8
                 RotationAnimator {
                     target: logoImage;
                     from: 0;
-                    to: 7200;
+                    to: 6800;
                     duration: 120000
                     running: true
                 }
