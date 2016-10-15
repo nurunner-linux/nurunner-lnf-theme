@@ -1,3 +1,3 @@
 # nurunner-lnf-theme
-The NuRunner Look and Feel theme for Plasma.
+The Nurunner Look and Feel theme for Plasma.
  
