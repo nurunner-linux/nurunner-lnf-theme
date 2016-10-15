@@ -62,7 +62,7 @@ Image {
                 id: rotationAnimator
                 from: 0
                 to: 360
-                duration: 1500
+                duration: 5000
                 loops: Animation.Infinite
             }
         }
