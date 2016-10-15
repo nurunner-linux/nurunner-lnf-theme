@@ -26,8 +26,7 @@ if (freeEdges["bottom"] == true) {
 }
 
 //panel.height = screenGeometry(panel.screen).height > 1024 ? 35 : 27
-panel.formfactor = 2
-panel.height = 56
+panel.height = gridUnit * 2
 
 var kicker = panel.addWidget("org.kde.plasma.kicker")
 kicker.currentConfigGroup = ["Shortcuts"]
@@ -40,8 +39,42 @@ kicker.writeConfig("limitDepth", true)
 kicker.writeConfig("useCustomButtonImage", true)
 
 pager = panel.addWidget("pager");
-pager.writeConfig("rows", "2");
-pager.writeConfig("hideWhenSingleDesktop", "true");
+
+var langIds = ["as",    // Assamese
+               "bn",    // Bengali
+               "bo",    // Tibetan
+               "brx",   // Bodo
+               "doi",   // Dogri
+               "gu",    // Gujarati
+               "hi",    // Hindi
+               "ja",    // Japanese
+               "kn",    // Kannada
+               "ko",    // Korean
+               "kok",   // Konkani
+               "ks",    // Kashmiri
+               "lep",   // Lepcha
+               "mai",   // Maithili
+               "ml",    // Malayalam
+               "mni",   // Manipuri
+               "mr",    // Marathi
+               "ne",    // Nepali
+               "or",    // Odia
+               "pa",    // Punjabi
+               "sa",    // Sanskrit
+               "sat",   // Santali
+               "sd",    // Sindhi
+               "si",    // Sinhala
+               "ta",    // Tamil
+               "te",    // Telugu
+               "th",    // Thai
+               "ur",    // Urdu
+               "vi",    // Vietnamese
+               "zh_CN", // Simplified Chinese
+               "zh_TW"] // Traditional Chinese
+
+if (langIds.indexOf(languageId) != -1) {
+    panel.addWidget("org.kde.plasma.kimpanel");
+}
 
 var eitm = panel.addWidget("org.kde.plasma.icontasks")
 eitm.currentConfigGroup = ["Configuration", "General"]
@@ -61,14 +94,7 @@ yakuakeIcon.writeConfig("url", "/usr/share/applications/org.kde.yakuake.desktop"
 
 //var pvolumemixer = panel.addWidget("org.kde.plasma.volume")
 
-var systray = panel.addWidget("org.kde.plasma.systemtray")
-var systrayContainmentId = systray.readConfig("SystrayContainmentId")
-var systrayContainment = desktopById(systrayContainmentId)
-systrayContainment.currentConfigGroup = ["General"]
-systrayContainment.writeConfig("extraItems","org.kde.plasma.devicenotifier,org.kde.plasma.battery,org.kde.plasma.networkmanagement,org.kde.plasma.clipboard,org.kde.plasma.printmanager,org.kde.ktp-contactlist,org.kde.plasma.ktplegacypresenceapplet")
-systrayContainment.writeConfig("hiddenItems","KMix,org.kde.ktp-contactlist,org.kde.plasma.ktplegacypresenceapplet,org.kde.plasma.volume,org.kde.plasma.notifications,org.kde.plasma.clipboard")
-systrayContainment.writeConfig("knownItems","org.kde.discovernotifier,org.kde.plasma.volume,org.kde.plasma.notifications")
-systrayContainment.writeConfig("shownItems", "transmission")
+panel.addWidget("org.kde.plasma.systemtray")
 
 panel.addWidget("org.kde.plasma.digitalclock")
 //panel.addWidget("org.kde.plasma.notifications")

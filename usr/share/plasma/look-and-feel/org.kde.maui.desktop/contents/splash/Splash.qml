@@ -27,84 +27,54 @@ Image {
     property int stage
 
     onStageChanged: {
-        if (stage == 1) {
-            introAnimation.running = true
-        }
-    }
-    TextMetrics {
-        id: units
-        text: "M"
-        property int gridUnit: boundingRect.height 
-    }
-
-    Rectangle {
-        id: topRect
-        width: parent.width
-        height: units.gridUnit * 14
-        anchors.centerIn: parent
-        color: "#4C000000"
-        Column {
-            id: content
-            y: units.gridUnit
-            x: parent.width
-            Image {
-                id: logoImage
-                anchors.horizontalCenter: parent.horizontalCenter
-                source: "images/nurunner-logo-white.svg"
-                sourceSize.height: units.gridUnit * 8
-                sourceSize.width: units.gridUnit * 8
-                RotationAnimator {
-                    target: logoImage;
-                    from: 0;
-                    to: 6800;
-                    duration: 120000
-                    running: true
-                }
-            }
-            Item {
-                width: 1
-                height: Math.round(units.gridUnit * 3 - progressBar.height/2)
-            }
-            Rectangle {
-                id: progressBar
-                radius: height
-                color: "#31363b"
-                height: Math.round(units.gridUnit/2)
-                width: height*32
-                Rectangle {
-                    radius: 3
-                    anchors {
-                        left: parent.left
-                        top: parent.top
-                        bottom: parent.bottom
-                    }
-                    width: (parent.width / 6) * (stage - 1)
-                    color: "#3daee9"
-                    Behavior on width {
-                        PropertyAnimation {
-                            duration: 250
-                            easing.type: Easing.InOutQuad
-                        }
-                    }
-                }
-            }
-        }
-        Rectangle {
-            id: separator
-            height: 1
-            color: "#fdfdfd"
-            width: parent.width
-            opacity: 0.4
-            y: parent.height - units.gridUnit * 4
+        if (stage == 2) {
+            introAnimation.running = true;
+        } else if (stage == 5) {
+            introAnimation.target = busyIndicator;
+            introAnimation.from = 1;
+            introAnimation.to = 0;
+            introAnimation.running = true;
         }
     }
 
-    XAnimator {
+    Item {
+        id: content
+        anchors.fill: parent
+        opacity: 0
+        TextMetrics {
+            id: units
+            text: "M"
+            property int gridUnit: boundingRect.height
+            property int largeSpacing: units.gridUnit
+            property int smallSpacing: Math.max(2, gridUnit/4)
+        }
+
+        Image {
+            id: busyIndicator
+            //match SDDM/lockscreen avatar positioning
+            property real size: units.gridUnit * 8
+
+            anchors.centerIn: parent
+            source: "images/nurunner-logo-white.svg"
+            sourceSize.height: units.gridUnit * 8
+            sourceSize.width: units.gridUnit * 8
+            RotationAnimator on rotation {
+                id: rotationAnimator
+                from: 0
+                to: 360
+                duration: 1500
+                loops: Animation.Infinite
+            }
+        }
+
+    }
+
+    OpacityAnimator {
         id: introAnimation
         running: false
         target: content
-        from: root.width
-        to: root.width / 2 - content.width/2
+        from: 0
+        to: 1
         duration: 1000
         easing.type: Easing.InOutQuad
     }
