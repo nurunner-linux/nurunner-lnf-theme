@@ -55,9 +55,10 @@ Image {
             property real size: units.gridUnit * 8
 
             anchors.centerIn: parent
+	    anchors.verticalCenterOffset: -50
             source: "images/nurunner-logo-white.svg"
-            sourceSize.height: units.gridUnit * 8
-            sourceSize.width: units.gridUnit * 8
+            sourceSize.height: units.gridUnit * 7.5
+            sourceSize.width: units.gridUnit * 7.5
             RotationAnimator on rotation {
                 id: rotationAnimator
                 from: 0
@@ -66,6 +67,15 @@ Image {
                 loops: Animation.Infinite
             }
         }
+	Text {
+	     anchors.top: busyIndicator.verticalCenter
+	     anchors.centerIn: parent
+	     anchors.verticalCenterOffset: 50
+    	     text: "Nurunner Linux"
+    	     font.family: "Arial"
+    	     font.pointSize: 24
+    	     color: "lightgrey"
+	}	
 
     }
 
@@ -76,6 +86,6 @@ Image {
         from: 0
         to: 1
         duration: 1000
-        easing.type: Easing.InOutQuad
+        //easing.type: Easing.InOutQuad
     }
 }
